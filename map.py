@@ -1,21 +1,36 @@
 import folium
 
-#Create a map object
-myMap = folium.Map(location=[42.3601,-71.0589],zoom_start=12)
+#Initailize a map object
+myMap = folium.Map(location=[-1.292155,36.821922],zoom_start=12)
 
 #Tooltip
 tooltip = "Click for more info"
 
-# Create markers
-folium.Marker([42.363600,-71.099500],
+
+# Initialize custom marker icon
+customIcon = folium.features.CustomIcon('customMarker.png',icon_size=(50,50))
+# Initialize markers
+folium.Marker([-1.298558,36.825382],
     popup='<strong>Location One</strong>',
     tooltip=tooltip
     ).add_to(myMap)
 
-folium.Marker([42.333600,-71.109500],
+folium.Marker([-1.307466,36.826537],
     popup='<strong>Location Two</strong>',
     tooltip=tooltip,
     icon=folium.Icon(icon='cloud')
+    ).add_to(myMap)
+
+folium.Marker([-1.307466,36.826537],
+    popup='<strong>Location Three</strong>',
+    tooltip=tooltip,
+    icon=folium.Icon(icon='cloud',color='red')
+    ).add_to(myMap)
+
+folium.Marker([-1.304481,36.823405],
+    popup='<strong>Location Four</strong>',
+    tooltip=tooltip,
+    icon=customIcon
     ).add_to(myMap)
 
 
